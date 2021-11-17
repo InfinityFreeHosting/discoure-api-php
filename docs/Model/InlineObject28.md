@@ -1,0 +1,12 @@
+# # InlineObject28
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**deletePosts** | **bool** |  | [optional]
+**blockEmail** | **bool** |  | [optional]
+**blockUrls** | **bool** |  | [optional]
+**blockIp** | **bool** |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
