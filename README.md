@@ -1,4 +1,4 @@
-# discourse-api
+# Discourse API client in PHP
 
 This page contains the documentation on how to use Discourse through API calls.
 
@@ -24,40 +24,10 @@ for related endpoints returned by the API, such as pagination URLs.
 These URLs are returned without the `.json` prefix so you need to add the header in
 order to get the correct response format.
 
-### Authentication
-
-Some endpoints do not require any authentication, pretty much anything else will
-require you to be authenticated.
-
-To become authenticated you will need to create an API Key from the admin panel.
-
-Once you have your API Key you can pass it in along with your API Username
-as an HTTP header like this:
-
-```
-curl -X GET \"http://127.0.0.1:3000/admin/users/list/active.json\" \\
--H \"Api-Key: 714552c6148e1617aeab526d0606184b94a80ec048fc09894ff1a72b740c5f19\" \\
--H \"Api-Username: system\"
-```
-
-and this is how POST requests will look:
-
-```
-curl -X POST \"http://127.0.0.1:3000/categories\" \\
--H \"Content-Type: multipart/form-data;\" \\
--H \"Api-Key: 714552c6148e1617aeab526d0606184b94a80ec048fc09894ff1a72b740c5f19\" \\
--H \"Api-Username: system\" \\
--F \"name=89853c20-4409-e91a-a8ea-f6cdff96aaaa\" \\
--F \"color=49d9e9\" \\
--F \"text_color=f0fcfd\"
-```
-
 ### Boolean values
 
 If an endpoint accepts a boolean be sure to specify it as a lowercase
 `true` or `false` value unless noted otherwise.
-
-
 
 ## Installation & Usage
 
@@ -72,14 +42,8 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 
 ```json
 {
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
-    }
-  ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "infinityfree/discourse-api": "0.1.0"
   }
 }
 ```
@@ -370,8 +334,34 @@ Class | Method | HTTP request | Description
 - [PostsIdJsonPost](docs/Model/PostsIdJsonPost.md)
 - [TIdJsonTopic](docs/Model/TIdJsonTopic.md)
 
-## Authorization
-All endpoints do not require authorization.
+## Authentication
+
+Some endpoints do not require any authentication, pretty much anything else will
+require you to be authenticated.
+
+To become authenticated you will need to create an API Key from the admin panel.
+
+Once you have your API Key you can pass it in along with your API Username
+as an HTTP header like this:
+
+```
+curl -X GET \"http://127.0.0.1:3000/admin/users/list/active.json\" \\
+-H \"Api-Key: 714552c6148e1617aeab526d0606184b94a80ec048fc09894ff1a72b740c5f19\" \\
+-H \"Api-Username: system\"
+```
+
+and this is how POST requests will look:
+
+```
+curl -X POST \"http://127.0.0.1:3000/categories\" \\
+-H \"Content-Type: multipart/form-data;\" \\
+-H \"Api-Key: 714552c6148e1617aeab526d0606184b94a80ec048fc09894ff1a72b740c5f19\" \\
+-H \"Api-Username: system\" \\
+-F \"name=89853c20-4409-e91a-a8ea-f6cdff96aaaa\" \\
+-F \"color=49d9e9\" \\
+-F \"text_color=f0fcfd\"
+```
+
 ## Tests
 
 To run the tests, use:
@@ -383,7 +373,9 @@ vendor/bin/phpunit
 
 ## Author
 
+Original API specification: Civilized Discourse Construction Kit, Inc.
 
+API client: InfinityFree
 
 ## About this package
 
